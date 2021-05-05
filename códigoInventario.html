@@ -1,0 +1,40 @@
+<hr>
+<div class="row">
+                    <div class="col-md-12" style="text-align:center;">
+                		<h4>Inventario del Grupo Scout San Benito</h4>
+                	</div>
+                </div>
+                <div class="row">
+                	<div class="col-md-12">
+                		<div class="row">
+                			<div class="col-md-10" style="margin-bottom:30px; required;">
+                				<label>Nombre del producto</label>
+                				[text* nombre_producto]
+                	    </div>
+                	    <div class="col-md-2" style="margin-bottom:30px;">
+                				<label>Tipo Material:</label>
+                				[select* tipo_material include_blank "Campismo" "Agua" "Electricidad" "Oficina" "Estructura" "Ramas"]
+                	    </div>
+                        <div class="col-md-4" style="margin-bottom:30px;">
+                            <label>Fecha de entrada material:</label>
+                            [date* fecha_entrada_material]
+                    </div>
+                	</div>
+                	<div class="row">
+                	    <div class="col-md-4" style="margin-bottom:30px;">
+                            <label>Cantidad:</label>
+                            [number* cantidad_material]
+                        </div>
+                        <div class="col-md-4" style="margin-bottom:30px;">
+                            <label>Estado del Material:</label>
+                            [select* estado_material include_blank "Bien" "Regular" "Mal"]
+                        </div>  
+                        <div class="col-md-4" style="margin-bottom:30px;">
+                            <label>Precio "€":</label>
+                            [number* cantidad_material]
+                        </div>
+                	</div>
+                    <hr>
+                </div>
+                <br>
+                [submit "Enviar"]
