@@ -1,47 +1,38 @@
-<div class="row">
-    <div class="col-md-12" style="text-align:center;">
-        <h4>Devolución de material del Grupo Scout San Benito</h4>
-    </div>
+<div class="col-md-12" style="text-align:center;">
+    <h4>Devolución de materiales del Grupo Scout San Benito</h4>
+</div>
 </div>
 <div class="row">
-    <div class="col-md-12">
-        <div class="row">
-<div class="col-md-10" style="margin-bottom:30px; required;">
-                <label>Nombre de la persona solicitante</label>
-                [text* nombre_producto]
-        </div>
-            <div class="col-md-10" style="margin-bottom:30px; required;">
-                <label>Nombre del producto</label>
-                [text* nombre_producto]
-        </div>
-<div class="col-md-2" style="margin-bottom:30px;">
-                <label>Rama solicitante</label>
-                [select* tipo_material include_blank "Castores" "Lobatos" "Rangers" "Pioneros" "Rutas" "Responsables" "Otro"]
-        </div>
-        <div class="col-md-2" style="margin-bottom:30px;">
-                <label>Tipo Material:</label>
-                [select* tipo_material include_blank "Campismo" "Agua" "Electricidad" "Oficina" "Estructura" "Ramas"]
-        </div>
-<div class="col-md-2" style="margin-bottom:30px;">
-                <label>Estado</label>
-                [select* tipo_material include_blank "Óptimo" "Regular" "Mal/Hay que reponerlo"]
-        </div>
-        <div class="col-md-4" style="margin-bottom:30px;">
-            <label>Fecha de entrada material:</label>
-            [date* fecha_entrada_material]
-    </div>
-    </div>
+<div class="col-md-12">
     <div class="row">
-        <div class="col-md-4" style="margin-bottom:30px;">
-            <label>Cantidad:</label>
-            [number* cantidad_material]
-        </div>
+<div class="col-md-10" style="margin-bottom:25px;">
+            <label>Nombre de la persona solicitante</label>
+[text nombre_solicitante]
+    </div>
+<div class="col-md-10" style="margin-bottom: 25px;">
+            <label>Nombre del producto</label>
+          [text nombre_producto]
+    </div>
+<div class="col-md-2" style="margin-bottom:30px;">
+            <label>Rama solicitante</label>
+           [select rama "Castores" "Lobatos" "Rangers" "Pioneros" "Rutas" "Responsables" "Otro"]
+    </div>
+<div class="col-md-2" style="margin-bottom:30px;">
+            <label>Tipo Material:</label>
+            [select tipo_material include_blank "Campismo" "Agua" "Electricidad" "Oficina" "Estructura" "Ramas"]
+    </div>
+[select estado_devolucion "Bueno" "Regular" "Malo/Hay que reponerlo"]
+<div class="col-md-4" style="margin-bottom:30px;">
+        <label>Fecha de Solicitud del material:</label>
+        [date fecha_solicitud_material]
+</div>
+<div class="row">
+    <div class="col-md-4" style="margin-bottom:30px;">
+        <label>Cantidad:</label>
+        [number cantidad_material]
     </div>
 </div>
-</div>
-         
-   
-    </div>
+
 
 </div>
 <hr>
