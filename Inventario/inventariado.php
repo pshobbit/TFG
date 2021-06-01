@@ -2,7 +2,7 @@
  /**
   * Plugin Name: Inventariado
   * Author: Pedro Suárez
-  * Description: Plugin creado por alumno de 2º Desarrollador de Aplicaciones Web, cómo Proyecto Integrado del grado. El plugin genera un shortcode para el formulario.
+  * Description: Plugin creado por alumno de 2º Desarrollador de Aplicaciones Web, cómo Proyecto Integrado del grado. El plugin genera un shortcode para el formulario. Usad el Shortcode [inv_plugin_form]
   */
 
 register_activation_hook(__FILE__, 'Inv_Plugin_init');
@@ -20,11 +20,9 @@ function Inv_Plugin_init()
         id mediumint(9) NOT NULL AUTO_INCREMENT,
         nombre varchar(40) NOT NULL,
         tipo_material varchar(200) NOT NULL,
-        estado_material int(4) NOT NULL,
+        estado_material varchar(40) NOT NULL,
         cantidad_material int(4) NOT NULL,
-        disponibilidad int(4) NOT NULL,
         precio int(4) NOT NULL,
-        /* ip varchar(300), */
         create_at datetime NOT NULL,
         UNIQUE (id)
         ) $charset_collate";
@@ -44,18 +42,14 @@ function Inv_Plugin_init()
         && $_POST['tipo_material'] != ''
         && $_POST['estado_material'] != ''
         && $_POST['cantidad_material'] != ''
-        && $_POST['cantidad_material'] != ''
-        && $_POST['disponibilidad'] != ''
         && $_POST['precio'] != ''
       ){
             $tabla_inventario = $wpdb->prefix .'inventario';
             $nombre = sanitize_text_field($_POST['nombre']);
             $tipo_material = sanitize_text_field($_POST['tipo_material']);
-            $estado_material = (int)$_POST['estado_material'];
+            $estado_material = sanitize_text_field($_POST['estado_material']);
             $cantidad_material = (int)$_POST['cantidad_material'];
-            $disponibilidad = (int)$_POST['disponibilidad'];
             $precio = (int)$_POST['precio'];
-            //$ip = Inv_Obtener_Ip_usuario();
             $create_at =date('Y-m-d H:i:s');
 
             $wpdb->insert($tabla_inventario, 
@@ -64,7 +58,6 @@ function Inv_Plugin_init()
                     'tipo_material' => $tipo_material, 
                     'estado_material' => $estado_material, 
                     'cantidad_material' => $cantidad_material, 
-                    'disponibilidad' => $disponibilidad, 
                     'precio' => $precio, 
                     'create_at' => $create_at, 
                 )
@@ -88,23 +81,20 @@ function Inv_Plugin_init()
                 <br><option value="Oficina">Oficina</option>
                 <br><option value="Estructura">Estructura</option>
                 <br><option value="Ramas">Ramas</option>
-                <option value=""></option>
+                <option value="Otro">Otro</option>
             </select>                     
         </div>
         <div class="form-input">
-            <label for="estado_material">En que estado se encuentra el material</label>
-            <br><input type="radio" name="estado_material" value="1" required>Nuevo
-            <br><input type="radio" name="estado_material" value="2" required>Óptimo
-            <br><input type="radio" name="estado_material" value="3" required>Regular
+            <label for="estado_material">Estado del material</label>
+            <select name="estado_material">
+                <br><option value="Bueno">Bueno</option>
+                <br><option value="Optimo">Óptimo</option>
+                <br><option value="Malo">Malo/Hay que reponerlo</option>
+            </select>                     
         </div>
         <div class="form-input">
-            <label for="cantidad_material">Cuántos materiales quieres meter</label>
-            <br><input type="number" name="cantidad_material" value="1" required>
-        </div>
-        <div class="form-input">
-            <label for="disponibilidad">Está disponible el material para usarlo</label>
-            <br><input type="radio" name="disponibilidad" value="1">Si
-            <br><input type="radio" name="disponibilidad" value="1">No
+            <label for="cantidad_material">Cantidad del material</label>
+            <br><input type="number" name="cantidad_material" value="0" required>
         </div>
         <div class="form-input">
             <label for="precio">Coste del material</label>
@@ -141,8 +131,9 @@ function Inv_Plugin_init()
         $inventario2 = $wpdb->get_results("SELECT * FROM $tabla_inventario");
         echo '<div class="wrap"><h1>Lista de Materiales</h1>';
         echo '<table class="wp-list-table widefat fixed striped">';
-        echo '<thead><tr><th width="30%">Nombre</th>';
-        echo '<th>Material</th><th>Estado</th><th>Cantidad</th><th>Disponibilidad</th><th>Precio</th><th>Fecha</th>';
+        echo '<thead><tr><th width="18%">Nombre</th>';
+        echo '<th>Material</th><th>Estado</th><th>Cantidad</th>
+        <th>Precio</th><th>Fecha</th>';
         echo '</tr></thead>';
         echo '<tbody id="the-list">';
 
@@ -150,13 +141,12 @@ function Inv_Plugin_init()
         {
             $nombre = esc_textarea($inventario->nombre);
             $tipo_material = esc_textarea($inventario->tipo_material);
-            $estado_material = (int)$inventario->estado_material;
+            $estado_material = esc_textarea($inventario->estado_material);
             $cantidad_material = (int)$inventario->cantidad_material;           
-            $disponibilidad = (int)$inventario->disponibilidad;
             $precio = (int)$inventario->precio;
             $create_at = (int)$inventario->create_at;
             echo "<tr><td>$nombre</td><td>$tipo_material</td>";
-            echo "<td>$estado_material</td><td>$cantidad_material</td><td>$disponibilidad</td>";
+            echo "<td>$estado_material</td><td>$cantidad_material</td>";
             echo "<td>$precio</td><td>$create_at</td></tr>";
         }
         echo '</tbody></table></div>';

@@ -3,7 +3,7 @@
  /**
   * Plugin Name: Solicitud-Inventariado
   * Author: Pedro Suárez
-  * Description: Plugin creado por alumno de 2º Desarrollador de Aplicaciones Web, cómo Proyecto Integrado del grado. El plugin genera un shortcode para el formulario.
+  * Description: Plugin creado por alumno de 2º Desarrollador de Aplicaciones Web, cómo Proyecto Integrado del grado. El plugin genera un shortcode para el formulario. Usad el Shortcode [sol_plugin_form]
   */
 
 register_activation_hook(__FILE__, 'Sol_Plugin_init');
@@ -24,7 +24,7 @@ function Sol_Plugin_init()
         material varchar(100) NOT NULL,
         tipo_material varchar(200) NOT NULL,
         rama_solicitante varchar(40) NOT NULL,
-        estado_material int(4) NOT NULL,
+        estado_material varchar(4) NOT NULL,
         cantidad_material int(4) NOT NULL,
         fecha datetime NOT NULL,
         create_at datetime NOT NULL,
@@ -59,7 +59,7 @@ function Sol_Plugin_init()
             $material = sanitize_text_field($_POST['material']);
             $tipo_material = sanitize_text_field($_POST['tipo_material']);
             $rama_solicitante = sanitize_text_field($_POST['rama_solicitante']);
-            $estado_material = (int)$_POST['estado_material'];
+            $estado_material = sanitize_text_field($_POST['estado_material']);
             $cantidad_material = (int)$_POST['cantidad_material'];
             $fecha = date('Y-m-d H:i:s');
             $create_at = date('Y-m-d H:i:s');
@@ -119,7 +119,7 @@ function Sol_Plugin_init()
                  <br><option value="Pioneros">Pioneros</option>
                  <br><option value="Rutas">Rutas</option>
                  <br><option value="Responsables">Responsables</option>
-                 <option value="Otro">Otros</option>
+                 <br><option value="Otro">Otros</option>
              </select>                     
          </div>
          <div class="form-input">
@@ -158,7 +158,7 @@ function Sol_Plugin_init()
    function Sol_solicitud_menu()
    {
        add_menu_page("Formulario Solicitud", "Solicitud-Devolución", "manage_options",
-       "sol_solicitud_menu", "Sol_solicitud_admin", "dashicons-feedback", 20);
+       "sol_solicitud_menu", "Sol_solicitud_admin", "dashicons-clipboard", 20);
    }
 
    add_shortcode('sol_solicitud_admin', 'Sol_solicitud_admin');
@@ -171,7 +171,7 @@ function Sol_Plugin_init()
         $solicitud2 = $wpdb->get_results("SELECT * FROM $tabla_solicitud");
         echo '<div class="wrap"><h1>Lista de Materiales</h1>';
         echo '<table class="wp-list-table widefat fixed striped">';
-        echo '<thead><tr><th width="30%">Nombre</th>';
+        echo '<thead><tr><th width="10%">Nombre</th>';
         echo '<th>Tipo_Formulario</th><th>Material</th><th>Tipo_Material</th>
         <th>Rama_Solicitante</th><th>Estado_material</th><th>Cantidad_Material</th>
         <th>Fecha</th>';
