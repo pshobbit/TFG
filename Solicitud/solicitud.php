@@ -3,7 +3,7 @@
  /**
   * Plugin Name: Solicitud-Inventariado
   * Author: Pedro Suárez
-  * Description: Plugin creado por alumno de 2º Desarrollador de Aplicaciones Web, cómo Proyecto Integrado del grado. El plugin genera un shortcode para el formulario. Usad el Shortcode [sol_plugin_form]
+  * Description: Plugin creado por alumno de 2º Desarrollador de Aplicaciones Web, cómo Proyecto Integrado del grado. El plugin genera un shortcode para el formulario.
   */
 
 register_activation_hook(__FILE__, 'Sol_Plugin_init');
@@ -24,7 +24,7 @@ function Sol_Plugin_init()
         material varchar(100) NOT NULL,
         tipo_material varchar(200) NOT NULL,
         rama_solicitante varchar(40) NOT NULL,
-        estado_material varchar(4) NOT NULL,
+        estado_material varchar(40) NOT NULL,
         cantidad_material int(4) NOT NULL,
         fecha datetime NOT NULL,
         create_at datetime NOT NULL,
@@ -33,16 +33,16 @@ function Sol_Plugin_init()
     include ABSPATH . 'wp-admin/includes/upgrade.php';
     dbDelta($query);
 }
-    
+
 
   // Definir el shortcode que proyecta el formulario
   add_shortcode('sol_plugin_form', 'Sol_Plugin_form');
-  
+
 
   function Sol_Plugin_form()
   {
       global $wpdb;
-      
+
       if(!empty($_POST)
         && $_POST['nombre'] != ''
         && $_POST['tipo_formulario'] != ''
@@ -119,7 +119,7 @@ function Sol_Plugin_init()
                  <br><option value="Pioneros">Pioneros</option>
                  <br><option value="Rutas">Rutas</option>
                  <br><option value="Responsables">Responsables</option>
-                 <br><option value="Otro">Otros</option>
+                 <option value="Otro">Otros</option>
              </select>                     
          </div>
          <div class="form-input">
@@ -158,7 +158,7 @@ function Sol_Plugin_init()
    function Sol_solicitud_menu()
    {
        add_menu_page("Formulario Solicitud", "Solicitud-Devolución", "manage_options",
-       "sol_solicitud_menu", "Sol_solicitud_admin", "dashicons-clipboard", 20);
+       "sol_solicitud_menu", "Sol_solicitud_admin", "dashicons-feedback", 20);
    }
 
    add_shortcode('sol_solicitud_admin', 'Sol_solicitud_admin');
@@ -171,7 +171,7 @@ function Sol_Plugin_init()
         $solicitud2 = $wpdb->get_results("SELECT * FROM $tabla_solicitud");
         echo '<div class="wrap"><h1>Lista de Materiales</h1>';
         echo '<table class="wp-list-table widefat fixed striped">';
-        echo '<thead><tr><th width="10%">Nombre</th>';
+        echo '<thead><tr><th width="30%">Nombre</th>';
         echo '<th>Tipo_Formulario</th><th>Material</th><th>Tipo_Material</th>
         <th>Rama_Solicitante</th><th>Estado_material</th><th>Cantidad_Material</th>
         <th>Fecha</th>';
@@ -185,7 +185,7 @@ function Sol_Plugin_init()
             $material = esc_textarea($solicitud->material);
             $tipo_material = esc_textarea($solicitud->tipo_material);
             $rama_solicitante = esc_textarea($solicitud->rama_solicitante);
-            $estado_material = (int)$solicitud->estado_material;
+            $estado_material = esc_textarea($solicitud->estado_material);
             $cantidad_material = (int)$solicitud->cantidad_material;           
             $fecha = (int)$solicitud->fecha;
             $create_at = (int)$solicitud->create_at;
@@ -194,4 +194,4 @@ function Sol_Plugin_init()
             echo "<td>$estado_material</td><td>$cantidad_material</td><td>$fecha</td></tr>";
         }
         echo '</tbody></table></div>';
-   }
+   } 
