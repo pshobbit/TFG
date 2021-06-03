@@ -1,20 +1,3 @@
-# TÍTULOS
-## HEAADING LEVEL2
-### HEADING LEVEL3...
-
-**bold**
-*italic*
-
-***very important (italic, bold)***
-
->Blockquotes
-- / + / * List 
-1. List Ordered
-    1. List ordered too
-2. ....
-
-=====================================================
-
 # INDICE
 
 1. Análisis y explicación del Proyecto de Fin de Grado
@@ -39,7 +22,6 @@
 
 
 
-========================================================
 
 
 ## **ANÁLISIS Y EXPLICACIÓN DEL PROYECTO DE FIN DE GRADO**
@@ -59,31 +41,33 @@ He realizado una página web para el Grupo Scout al que pertenezco y también he
    - Contará también con un apartado de reservas de la nave del grupo.
 
 
-   #### Inventario del grupo
+   ### Inventario del grupo
    Ahora mismo está puesto en una página web en Local y consta de 3 aplicaciones en específico:
    - La primera es una aplicación (realizada a código), la cuál escribe un formulario en la web (a través de un shortcode) y los datos recibidos se guardan en una tabla en la base de datos de mysql, la cuál si no está creada la crea por primera vez con el tipo de dato necesario, y después comprueba si ya está creada y de ser así va ingresando los datos en su orden, la cuál servirá para realizar la entrada de los materiales, esta aplicación también dibuja una tabla en el backend de la web a parte de hacerlo en la base de datos de mysql.
    - La segunda es una aplicación, también realizada a código, del mismo estilo que la anterior pero la diferencia es que esta generará un formulario para la solicitud/devolución de los materiales. Generando también una tabla en la base de datos (si no existiese previametne), una tabla en el backend de wordpress.
    - Por último hacemos uso de la aplicación WpDataTable, la cuál hace una llamada a la base de datos de mysql cogiendo los datos de la tabla que nosotros queramos y así podamos proyectarlo en la página web.
 
-   > Para finalizar este apartado he escrito una configuración en *"config.php"*, en la cuál escribimos los siguientes comandos:
-    define('WP_DEBUG', true);
-    define('WP_DEBUG_LOG', false);
-    > define('WP_DEBUG_LOG', true);
+Para finalizar este apartado he escrito una configuración en *"config.php"*, en la cuál escribimos los siguientes comandos:
+
+    - define('WP_DEBUG', true);
+    - define('WP_DEBUG_LOG', false);
+    - define('WP_DEBUG_LOG', true);
     
-    El cuál hace que los fallos de la página de WordPress se presenten en un documento *"debug.log"* que encontraremos en la carpeta de wp-content. Eso se usa ya que hay algunos problemas que el propio sistema de fallos de WordPress no te detecta, pero el debug_log si, por tanto, hacemos que se escriban en un fichero para que podamos leerlo y así corregir los errores pertinentes.
+      
+> El cuál hace que los fallos de la página de WordPress se presenten en un documento "debug.log" que encontraremos en la carpeta de wp-content. Eso se usa ya que hay algunos problemas que el propio sistema de fallos de WordPress no te detecta, pero el debug_log si, por tanto, hacemos que se escriban en un fichero para que podamos leerlo y así corregir los errores pertinentes.
 
 
+## 1.2. OBJETIVO Y FINALIDAD DEL PROYECTO.
 
-### 1.2. OBJETIVO Y FINALIDAD DEL PROYECTO.
+El proyecto tiene diferentes objetivos y finalidades:
 
-    El proyecto tiene diferentes objetivos y finalidades:
-    - Realizar una página web para que se conozca quiénes son los Scout, que hacemos, pero sobre todo que se conozca al grupo Scout de San Benito.
-    - Tener un control exhaustivo de la participación de los miembros del grupo en las actividades y así tener el control de las autorizaciones para participar en las actividades.
-    - Tener un control exhaustivo de los documentos, tanto de los miembros del grupo, cómo tener un control también de las solicitudes de admisión.
-    - Enseñar que hace el grupo Scout en el día a día, realizando también un enlace a las redes sociales del grupo.
-    - Tener un control del uso de la nave y así también poder dejarlapara alquilar.
-    - Poder tener un control del inventario del grupo en la web, así también tener el control de los gastos que produce la compra de los materiales.
-    - Tener un apartado en la web para poder solicitar/devolver un material con el que cuenta el grupo.
+- Realizar una página web para que se conozca quiénes son los Scout, que hacemos, pero sobre todo que se conozca al grupo Scout de San Benito.
+- Tener un control exhaustivo de la participación de los miembros del grupo en las actividades y así tener el control de las autorizaciones para participar en las actividades.
+- Tener un control exhaustivo de los documentos, tanto de los miembros del grupo, cómo tener un control también de las solicitudes de admisión.
+- Enseñar que hace el grupo Scout en el día a día, realizando también un enlace a las redes sociales del grupo.
+- Tener un control del uso de la nave y así también poder dejarlapara alquilar.
+- Poder tener un control del inventario del grupo en la web, así también tener el control de los gastos que produce la compra de los materiales.
+- Tener un apartado en la web para poder solicitar/devolver un material con el que cuenta el grupo.
 
 
 ## **ANÁLISIS Y EXPLICACIÓN DEL PROYECTO DE FIN DE GRADO**
