@@ -65,10 +65,10 @@ He realizado una página web para el Grupo Scout al que pertenezco y también he
    - La segunda es una aplicación, también realizada a código, del mismo estilo que la anterior pero la diferencia es que esta generará un formulario para la solicitud/devolución de los materiales. Generando también una tabla en la base de datos (si no existiese previametne), una tabla en el backend de wordpress.
    - Por último hacemos uso de la aplicación WpDataTable, la cuál hace una llamada a la base de datos de mysql cogiendo los datos de la tabla que nosotros queramos y así podamos proyectarlo en la página web.
 
-   Para finalizar este apartado he escrito una configuración en *"config.php"*, en la cuál escribimos los siguientes comandos:
-       > define('WP_DEBUG', true);
-       > define('WP_DEBUG_LOG', false);
-       > define('WP_DEBUG_LOG', true);
+   > Para finalizar este apartado he escrito una configuración en *"config.php"*, en la cuál escribimos los siguientes comandos:
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_LOG', false);
+    > define('WP_DEBUG_LOG', true);
     
     El cuál hace que los fallos de la página de WordPress se presenten en un documento *"debug.log"* que encontraremos en la carpeta de wp-content. Eso se usa ya que hay algunos problemas que el propio sistema de fallos de WordPress no te detecta, pero el debug_log si, por tanto, hacemos que se escriban en un fichero para que podamos leerlo y así corregir los errores pertinentes.
 
