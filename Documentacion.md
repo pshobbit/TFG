@@ -22,9 +22,10 @@
 
 
 
+----------------------------------------------------------------------------
 
 
-## **ANÁLISIS Y EXPLICACIÓN DEL PROYECTO DE FIN DE GRADO**
+## **1. ANÁLISIS Y EXPLICACIÓN DEL PROYECTO DE FIN DE GRADO**
 ### 1.1. INTRODUCCIÓN Y EXPLICACIÓN DEL PROYECTO
 
 He realizado una página web para el Grupo Scout al que pertenezco y también he creado una aplicación para gestionar el inventario que tiene el grupo y la solicitud y devolución de los materiales.
@@ -70,7 +71,15 @@ El proyecto tiene diferentes objetivos y finalidades:
 - Tener un apartado en la web para poder solicitar/devolver un material con el que cuenta el grupo.
 
 
-## **ANÁLISIS Y EXPLICACIÓN DEL PROYECTO DE FIN DE GRADO**
+## **2. PLANIFICACIÓN PREVIA**
 
-    
+### 2.1 TECNOLOGÍA UTILIZADA PARA LA REALIZACIÓN DEL PROYECTO
+
+Para la realización de este proyecto he utilidado diferentes tecnologías:
+- He utilizado el editor de Visual Studio Core para todos los apartados que consta de edición/creación/modificación de código.
+- He utilizado WordPress para el manejo de la web principal del grupo Scout San Benito.
+    - Utilizo otras aplicaciones cómo wpdatatable, contact Form, manuel-soft, para la realización de diferentes apartados en la web.
+- Utilizo Xampp para el funcionamiento de un wordpress local, y también para el funcionamiento de mysql.
+- Utilizo GitHub para la subida de los documentos y drive para la subida de la máquina virtual.
+- Usaré VirtualBox para poder hacer una máquina virtual de windows y así subir también el proyecto entero en esa máquina.
 
