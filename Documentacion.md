@@ -90,7 +90,7 @@ Para la realización de este proyecto he utilidado diferentes tecnologías:
     - El conjunto de aplicaciones de Contact Form 7, se usará para crear los formularios.
     - ManuSoft aplicación usada para la generación de pdfs en los formularios.
     - Diferentes aplicaciones para la optimización de las fotografías cómo son Regenerate Thumbnails, Photonic Gallery, Smush.
-    - Una aplicación también muy importante es la Protección de datos de RGPD ya que hay mucho tráfico de documentación por la web.
+    - Una aplicación también muy importante es la Protección de datos de RGPD ya que hay mucho tráfico de documentación por la web.wt
 
 - Xampp para el funcionamiento de un wordpress local y luego poder hacer la migración una vez creado completo. Para el acceso a la base de datos de MYSQL.
 - GitHub para la subida de los documentos .md, las aplicaciones de Inventario y Solicitud y para la subida de la aplicación wpDatatable.
@@ -100,6 +100,7 @@ Para la realización de este proyecto he utilidado diferentes tecnologías:
 
 ### 2.2 DESARROLLO DEL PROGRAMA
 Empecé el programa creando la página web del grupo con sus diferentes funcionalidades, buscando y modificando las aplicaciones pertinentes para que funcionara tal y cómo tenía pensado en los objetivos.
+
 
 Después me centré sobre todo en la aplicación del Inventario ya que era algo más específico y más complicado de conseguir. 
 Esta aplicación consta de varias partes:
@@ -176,10 +177,11 @@ Esta aplicación consta de varias partes:
 ### 3.2 SOLUCIONES REALIZADAS
 
 
+---
 ## **4. DESPLIEGUE DE LA APLICACIÓN**
 ### 4.1 TECNOLOGÍA UTILIZADA FINALMENTE PARA EL DESPLIEGUE DEL PROGRAMA FINAL
 
-
+---
 ## **5. CONCLUSIÓN**
 ### 5.1. REVISIÓN DE LOS OBJETIVOS PREVIOS
 ### 5.2 FUNCIONALIDAD DEL PROGRAMA
