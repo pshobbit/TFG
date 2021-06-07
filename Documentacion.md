@@ -58,9 +58,9 @@ Para finalizar este apartado he escrito una configuración en *"config.php"*, en
 > El cuál hace que los fallos de la página de WordPress se presenten en un documento "debug.log" que encontraremos en la carpeta de wp-content. Eso se usa ya que hay algunos problemas que el propio sistema de fallos de WordPress no te detecta, pero el debug_log si, por tanto, hacemos que se escriban en un fichero para que podamos leerlo y así corregir los errores pertinentes.
 
 
-## 1.2. OBJETIVO Y FINALIDAD DEL PROYECTO.
+## 1.2. OBJETIVO DEL PROYECTO.
 
-El proyecto tiene diferentes objetivos y finalidades:
+El proyecto tiene diferentes objetivos:
 
 - Realizar una página web para que se conozca quiénes son los Scout, que hacemos, pero sobre todo que se conozca al grupo Scout de San Benito.
 - Tener un control exhaustivo de la participación de los miembros del grupo en las actividades y así tener el control de las autorizaciones para participar en las actividades.
@@ -100,6 +100,11 @@ Para la realización de este proyecto he utilidado diferentes tecnologías:
 
 ### 2.2 DESARROLLO DEL PROGRAMA
 Empecé el programa creando la página web del grupo con sus diferentes funcionalidades, buscando y modificando las aplicaciones pertinentes para que funcionara tal y cómo tenía pensado en los objetivos.
+- Para empezar añadi todas las aplicaciones necesarias para utilizar WooCommerce y las configuré para tener un uso más fluido.
+- Después cómo una de las ideas es el contacto con los usuarios, utilicé la aplicación Anti-Spam ya que iba a adjuntar una serie de formularios que trabajan a través del correo y así no entraba ningún correo basura.
+- Añadí varias aplicaciones de formulario cómo son "Contact Form 7, Contact Form 7 Signature Addon y Contact Form CFDB7" todas estas para añadir formularios sencillos, añadir un campo de firma a nuestro formulario y para que estos mensajes no se pierdan y se guarden en la base de datos.
+- Para el envío de los correos he utilizado una aplicación llamad MailPoet 3, la cuál crea y envia boletines, publica notificaciones y más apartado que són fáciles de configurar.
+- Con ayuda de las prácticas, desarrollé un Plugin que convierte el registro de contact form 7 a pdf, esto es bastante útil ya que podemos descargar cualquier producto de woocommerce cómo si fuese una autorización y adaptar cualquier formulario con el css apropiado para generar el pdf que quisiesemos.
 
 
 Después me centré sobre todo en la aplicación del Inventario ya que era algo más específico y más complicado de conseguir. 
@@ -173,16 +178,53 @@ Esta aplicación consta de varias partes:
 
 ## **3. PROBLEMAS Y SOLUCIONES**
 ### 3.1 PROBLEMAS ENCONTRADOS A LA HORA DE REALIZAR EL PROYECTO
+A la hora de generar las aplicaciones de Inventario y de Solicitud/Devolución de materiales encontré las siguientes dificultades:
+- Encontrar una guía o alguna aplicación para poder realizar lo que tenía en mente, todo lo encontrado no era 
+útil o no era lo que necesitaba para la aplicación.
+- A la hora de empezar a crear la aplicación, vi que no era efectivo realizarla en la web que ya tenía montada, ya que no quería modificar ninguna tabla de datos ya creada.
+- Adaptar una aplicación pensada para un formulario específico y la entrada de una serie de datos en la base de datos.
+- Una vez empecé a entender cómo se generan los formularios, adaptar las consultas SQL, adaptar el php y los datos del formulario para que cuando saliese y se solicitase en la web aparecieran en el sitio y orden correcto.
+- Una vez que la tabla estaba creada en la base de datos, los datos que tenías que pasarle eran exactamente los que pedía, por tanto cada vez que querías hacer una comprobación tenías que crear una nueva tabla, lo que implicaba en crear o bien unas nuevas bases de datos con sus wordpress correspondientes o bien crear tablas.
+-  Dependiendo que datos querías meter en el formulario, se tenía que proyectar de una forma tanto en wordpress cómo en el formulario cómo en la consulta de SQL.
+- Para que el usuario metiera los datos correspondientes decidí "sanear las respuestas" con la complicación de aprender bien cómo se sanean los datos en php.
+- Duplicación de datos.
+- La fecha de solicitud o devoluición de materiales al ponerla bien en el formato de php, al hacer la consulta no se guardaba bien, la fecha de creaciónd el inventario si está actuando cómo quiero que actúe.
+
+
 
 ### 3.2 SOLUCIONES REALIZADAS
+Soluciones encontradas a partir de los problemas anteriores:
+- Ya que no encontré nada por internet ni se me ocurría cómo hacerlo, busqué la posibilidad de crear una aplicación desde 0 con la idea de que hiciese todo lo que yo quisiera.
+- Decido empezar a trabajar en Local para no poder meterme sin problemas en la base de datos del wordpress y poder eliminar, crear o editar tablas a mi antojo.
+- Buscar cómo se creaban los formularios, que datos necesitaba y cómo se determinaban esos campos.
+- Para poder darme cuenta de los datos que me estaban pidiendo tuve que volver a repasar toda la parte de SQL que dimos en primero, entendiendo así bien cómo se generan las consultas pertinentes, cómo se crea la tabla y cómo se inserta en el array.
+- Al principio empecé creando tablas dentro de la misma base de datos, pero descubrí que al final seguía chocando una parte de la aplicación, así que decidí crear otras bases de datos. Ahora antes de ejecutar el plugin hay que revisar bien la tabla que se va a crear en la base de datos para no tener ninguna confusión con los datos.
+- Aprender cómo se sanean los datos a través foros y vídeos de internet.
+- Sigo buscando una solución con respecto a esto.
+- Decido trabajar la fecha cómo si fuese de tipo texto ya que no he encontrado la forma de trabajarla de forma correcta en todos los formatos.
 
 
 ---
 ## **4. DESPLIEGUE DE LA APLICACIÓN**
 ### 4.1 TECNOLOGÍA UTILIZADA FINALMENTE PARA EL DESPLIEGUE DEL PROGRAMA FINAL
+Xamp
+Visual Studio Core
+VirtualBox
+Windows10
+
 
 ---
 ## **5. CONCLUSIÓN**
 ### 5.1. REVISIÓN DE LOS OBJETIVOS PREVIOS
+- Realizar una página web para que se conozca quiénes son los Scout, que hacemos, pero sobre todo que se conozca al grupo Scout de San Benito. => Cumplido
+- Tener un control exhaustivo de la participación de los miembros del grupo en las actividades y así tener el control de las autorizaciones para participar en las actividades. => Cumplido
+- Tener un control exhaustivo de los documentos, tanto de los miembros del grupo, cómo tener un control también de las solicitudes de admisión. => Cumplido
+- Enseñar que hace el grupo Scout en el día a día, realizando también un enlace a las redes sociales del grupo.     => Cumplido
+- Tener un control del uso de la nave y así también poder dejarla para alquilar. => Cumplido
+- Poder tener un control del inventario del grupo en la web, así también tener el control de los gastos que produce la compra de los materiales. => Cumplido
+- Tener un apartado en la web para poder solicitar/devolver un material con el que cuenta el grupo. => Faltaría mejorar el tema de la fecha, pero el resto => Cumplido
+
 ### 5.2 FUNCIONALIDAD DEL PROGRAMA
+
+
 ### 5.3 FINALIDAD DEL PROYECTO
