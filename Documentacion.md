@@ -20,9 +20,6 @@
     2. Funcionalidad del programa
     3. Finalidad del proyecto
 
-
-
-
 ---
 
 ## **1. ANÁLISIS Y EXPLICACIÓN DEL PROYECTO DE FIN DE GRADO**
@@ -207,10 +204,11 @@ Soluciones encontradas a partir de los problemas anteriores:
 ---
 ## **4. DESPLIEGUE DE LA APLICACIÓN**
 ### 4.1 TECNOLOGÍA UTILIZADA FINALMENTE PARA EL DESPLIEGUE DEL PROGRAMA FINAL
-Xamp
-Visual Studio Core
-VirtualBox
-Windows10
+Utilizo una serie de aplicaciones específicas, todas estudiadas en el curso, para poder desarrollar el programa:
+- **Xampp**: con esta podemos tener acceso a nuestro localhost, crear así nuestro WordPress en nuestro ordenador y así si hay algún fallo no tener problema en poder eliminar y volver a crear las carpetas de localhost/ sin ningún problema.
+- **Visual Studio Core**: Editor de texto, usado para la creación de las aplicaciones, edición de los textos y la configuración de los archivos por defecto, cómo es el archivo de config.php
+- **VirtualBox**: Máquina virtual creada para poder realizar la aplicación y así presentarla en la defensa del TFG.
+- **Windows10**: Sistema Operativo usado en la máquina virtual.
 
 
 ---
@@ -225,6 +223,14 @@ Windows10
 - Tener un apartado en la web para poder solicitar/devolver un material con el que cuenta el grupo. => Faltaría mejorar el tema de la fecha, pero el resto => Cumplido
 
 ### 5.2 FUNCIONALIDAD DEL PROGRAMA
+La web de scoutsanbenito.es está funcionando ahora mismo cómo se quería, con todas las aplicaciones actualizadas y al día, con el control exhaustivo de las actividades, de los papeles, dá conocimiento de lo que es el grupo y de lo que es el movimiento scout. 
+Es una página web que ya está en funcionamiento, la gente puede entrar y solicitar admisión en el grupo scout, al mismo tiempo que puede ver las activiades que hacemos, pero no puede participar en ellas hasta que no sean miembros del grupo.
 
+Con respecto a las otras aplicaciones que están en local:
+- En el Inventario podemos ir introduciendo los materiales para poder tener una lista de ellos y sobre todo, poder tenerlo bien organizado en la web, para poder proyectar los datos de la base de datos que estamos utilizando usamos la aplicación wpDatatables. 
+- El formulario de Solicitud de materiales también está en funcionamiento, sirve para tener un control claro de la fecha que se va a solicitar, quién lo solicita, que tipo de material y desde dónde lo va a solicitar (tipo de rama), esto también se proyectará en la web, pero solo lo podrán ver aquellos usuarios que nosotros permitamos (permitiendolo con los roles de WordPress).
+
+Están en Local porque no he podido aún realizar la migración ya que aún hay que estudiar bien todas las tablas que generan las aplicaciones de la wqeb de scoutsanbenito.es
 
 ### 5.3 FINALIDAD DEL PROYECTO
+Mi proyecto estaba reflejado en hacer la vida más fácil al grupo tanto en la parte de gestión personal (datos, fichas médicas, cuentas bancarias, redes sociales, autorizaciones...), cómo para la gestión de los materiales, constantemente se estaban cogiendo pero nunca sabíamos si había que reponerlos, quién los había cogido... Es una aplicación que llevamos bastante tiempo darle una vuelta y he aprovechado que se necesitaba algo así cómo para poder crearlo y darle una utilidad real.
