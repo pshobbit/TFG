@@ -66,7 +66,7 @@ He realizado una página web para el Grupo Scout al que pertenezco, también una
    Mi programa está puesto en una página web en Local y consta de 3 aplicaciones en específico:
    - La primera es una aplicación (realizada a código), la cuál escribe un formulario en la web (a través de un shortcode) y los datos recibidos se guardan en una tabla en la base de datos de mysql, la cuál si no está creada la crea por primera vez con el tipo de dato necesario, y después comprueba si ya está creada y de ser así va ingresando los datos en su orden, la cuál servirá para realizar la entrada de los materiales, esta aplicación también dibuja una tabla en el backend de la web a parte de hacerlo en la base de datos de mysql.
    - La segunda es una aplicación, también realizada a código, del mismo estilo que la anterior pero la diferencia es que esta generará un formulario para la solicitud/devolución de los materiales. Generando también una tabla en la base de datos (si no existiese previametne), una tabla en el backend de wordpress.
-   - Por último hacemos uso de la aplicación WpDataTable, la cuál hace una llamada a la base de datos de mysql cogiendo los datos de la tabla que nosotros queramos y así podamos proyectarlo en la página web.
+   - Por último, hacemos uso de la aplicación WpDataTable, la cuál hace una llamada a la base de datos de mysql cogiendo los datos de la tabla que nosotros queramos y así podamos proyectarlo en la página web.
 
 ![Inventario](./img/inventario.png)
 
@@ -162,13 +162,13 @@ A la hora de hacer la página web, me encontré una serie de dificultades, pero 
 A la hora de generar las aplicaciones de Inventario y de Solicitud/Devolución de materiales encontré las siguientes dificultades:
 
 - Encontrar una guía o alguna aplicación para poder realizar lo que tenía en mente, todo lo encontrado no era 
-útil o no era lo que necesitaba para la aplicación pero ya que no encontré nada por internet ni se me ocurría cómo hacerlo, busqué la posibilidad de crear una aplicación con la idea de que hiciese todo lo que yo quisiera.
+útil o no era lo que necesitaba para la aplicación, pero ya que no encontré nada por internet ni se me ocurría cómo hacerlo, busqué la posibilidad de crear una aplicación con la idea de que hiciese todo lo que yo quisiera.
 Adaptar una aplicación pensada para un formulario específico y la entrada de una serie de datos en la base de datos.
 
  
 - A la hora de empezar a crear la aplicación, vi que no era efectivo realizarla en la web que ya tenía montada, ya que no quería modificar ninguna tabla de datos existente, por ello, decido empezar a trabajar en Local para poder meterme sin problemas en la base de datos del wordpress y poder eliminar, crear o editar tablas conforme fuese necesario.
 
-- Al principio fué un poco locura entender que hacía el SQL, el php y los datos que se pedían en los formularios de los ejemplos que encontré, la solución fué ir llamando poco a poco todos los datos en cada una de las consultas para así ir viendo si se creaban bien o no y sobre todo, ver que tipo de datos estabamos hablando.
+- Al principio fué un poco locura entender que hacía el SQL, el php y los datos que se pedían en los formularios de los ejemplos que encontré, la solución fué ir llamando poco a poco todos los datos en cada una de las consultas para así ir viendo si se creaban bien o no y, sobre todo, ver que tipo de datos estabamos hablando.
 
 - Una vez que la tabla estaba creada en la base de datos, los datos que tenías que pasarle eran exactamente los que pedía, por tanto cada vez que querías hacer una comprobación tenías que crear una nueva tabla, lo que supuso crear unas nuevas bases de datos con sus wordpress correspondientes o crear tablas, al final para poder darme cuenta de los datos que me estaban pidiendo tuve que volver a repasar toda la parte de SQL que dimos en primero, entendiendo así bien cómo se generan las consultas pertinentes, cómo se crea la tabla y cómo se inserta en el array.
 
@@ -223,7 +223,7 @@ Empecé desarrollando la página web del grupo con sus diferentes funcionalidade
 Después me centré sobre todo en la aplicación del Inventario ya que era algo más específico y más complicado de conseguir. 
 Esta aplicación consta de varias partes:
 
-1. A la hora de crear una aplicación para WordPress es importante poner el apartado de **Plugin Name**, **Author** y  **Description** tal cuál, ya que sirve para la documentación previa que se verá en el apartado de *Plugins* en nuestro WordPress, explicando el nombre, el autor y una breve descripción de lo que hace nuestra aplicación. Se le puede añadir más apartado cómo la versión de la aplicación.
+1. A la hora de crear una aplicación para WordPress es importante poner el apartado de **Plugin Name**, **Author** y **Description** tal cuál, ya que sirve para la documentación previa que se verá en el apartado de *Plugins* en nuestro WordPress, explicando el nombre, el autor y una breve descripción de lo que hace nuestra aplicación. Se le puede añadir más apartado cómo la versión de la aplicación.
 
 2. Llamamos a uno de los hook de wordpress, para ello usamos la función **register_activation_hook**, la cuál necesita dos parametros, el primero es *$file:string* que usará el fichero principal de nuestro Aplicación, para indicarle la ruta del fichero usamos la variable de php __FILE__ que nos va a devolver la ruta del fichero que estamos actualmente, *$function:callable* que llamará a la función que le indiquemos que use.
 
@@ -250,13 +250,13 @@ Esta aplicación consta de varias partes:
 
 12. La función *wp_nonce_field('graba_inventario', 'inventario_nonce')* de php crea unos campos ocultos en el formulario con un tokken para verificar la validez del formulario. 
 
-13. Para crear la página de administración de nuestra aplicación en WordPress usamos la función **add_action** *("admin_menu", "NombreFuncion")*, después desarrollamos la función. Esta función debe añadir una página de menú, para esto  usamos la función **add_menu_page** *("Nombre que tenga el panel de administración", "Texto que aparece en el menú izquierdo", "nivel de privilegios", "slug" , "función encargada de pintar en el panel de administración", "url con icono, o dachicons de wordpress", numero para localización del menú)*
+13. Para crear la página de administración de nuestra aplicación en WordPress usamos la función **add_action** *("admin_menu", "NombreFuncion")*, después desarrollamos la función. Esta función debe añadir una página de menú, para esto usamos la función **add_menu_page** *("Nombre que tenga el panel de administración", "Texto que aparece en el menú izquierdo", "nivel de privilegios", "slug" , "función encargada de pintar en el panel de administración", "url con icono, o dachicons de wordpress", numero para localización del menú)*
 
 
-14. Se define la función comentada anteriormente, esta imprimirá el código html que necesitamos para pintar una tabla dónde entrarán todos los registros, realizar una consulta SQL para mostrar todos los registros que se han grabado y recorrer con un bucle los registros para irlos mostrando y después pues ya cerrar el html. Volvemos a usar la variable de **global $wpdb**  cómo siempre hacemos cuando trabajamos con la base de datos, preparamos una variable que me va a almacenar el nombre de la tabla dónde hemos ido guardando los registros **$nombreTabla = $wpdb->prefix . 'tabla'**, realizamos la consulta con una variable nueva a la base de datos *$variable = $wpdb->get_resutls("SELECT * FROM $nombreTabla")*, después empezamos a crear el panel de administración con diferentes *echo* y por último creamos un *foreach($variable as $tabla*), para hacer el bucle dependiendo de los datos que se generan en el formulario tendremos que usar *esc_textarea* si es tipo texto o *(int)* si es tipo número, cerramos el bucle dibujando el cierre de la tabla.
+14. Se define la función comentada anteriormente, esta imprimirá el código html que necesitamos para pintar una tabla dónde entrarán todos los registros, realizar una consulta SQL para mostrar todos los registros que se han grabado y recorrer con un bucle los registros para irlos mostrando y después pues ya cerrar el html. Volvemos a usar la variable de **global $wpdb** cómo siempre hacemos cuando trabajamos con la base de datos, preparamos una variable que me va a almacenar el nombre de la tabla dónde hemos ido guardando los registros **$nombreTabla = $wpdb->prefix . 'tabla'**, realizamos la consulta con una variable nueva a la base de datos *$variable = $wpdb->get_resutls("SELECT * FROM $nombreTabla")*, después empezamos a crear el panel de administración con diferentes *echo* y por último creamos un *foreach($variable as $tabla*), para hacer el bucle dependiendo de los datos que se generan en el formulario tendremos que usar *esc_textarea* si es tipo texto o *(int)* si es tipo número, cerramos el bucle dibujando el cierre de la tabla.
 
 
-Una vez finalizado el Inventario, me centré en Solicitud/Devolución ya que una vez conseguido el inventario, este tenía un poco la misma dinámica pero con datos diferentes. 
+Una vez finalizado el Inventario, me centré en Solicitud/Devolución ya que, una vez conseguido el inventario, este tenía un poco la misma dinámica, pero con datos diferentes. 
 
 - Esta aplicación consta de las mismas partes que la aplicación de *Inventariado*, pero con algunas diferencias:
     - Los datos que genera la tabla son más.
@@ -289,11 +289,11 @@ La web de scoutsanbenito.es está funcionando cómo se había planteado, con tod
 Es una página web que ya está en funcionamiento, la gente puede entrar y solicitar admisión en el grupo scout, al mismo tiempo que puede ver las activiades que hacemos, pero no puede participar en ellas hasta que no sean miembros del grupo.
 
 Con respecto a las otras aplicaciones que están en local:
-- En el Inventario podemos ir introduciendo los materiales para poder tener una lista de ellos y sobre todo, poder tenerlo bien organizado en la web, para poder proyectar los datos de la base de datos que estamos utilizando usamos la aplicación wpDatatables.
+- En el Inventario podemos ir introduciendo los materiales para poder tener una lista de ellos y, sobre todo, poder tenerlo bien organizado en la web, para poder proyectar los datos de la base de datos que estamos utilizando usamos la aplicación wpDatatables.
 
 - El formulario de Solicitud de materiales también está en funcionamiento, sirve para tener un control claro de la fecha que se va a solicitar, quién lo solicita, que tipo de material y desde dónde lo va a solicitar (tipo de rama), esto también se proyectará en la web, pero solo lo podrán ver aquellos usuarios que nosotros permitamos (permitiendolo con los roles de WordPress).
 
-- Esta es la versión 1, en un futuro se realizará al versión 2, la cuál contará con mejores y con la migración de la aplicación a nuestra web Scout
+- Esta es la versión 1, en un futuro se realizará a la versión 2, la cuál contará con mejores y con la migración de la aplicación a nuestra web Scout
 
 
 
