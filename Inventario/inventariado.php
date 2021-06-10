@@ -3,6 +3,7 @@
   * Plugin Name: Inventariado
   * Author: Pedro Suárez
   * Description: Plugin creado por alumno de 2º Desarrollador de Aplicaciones Web, cómo Proyecto Integrado del grado. El plugin genera un shortcode para el formulario. Usad el Shortcode [inv_plugin_form]
+  * Version: 0.1.1
   */
 
 register_activation_hook(__FILE__, 'Inv_Plugin_init');

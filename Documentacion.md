@@ -12,12 +12,6 @@
 ### Curso: 2020/2021
 #### Autor: Pedro Suárez Mula
 
-
-
-
-
-
-
 ---
 
 # INDICE
@@ -102,7 +96,6 @@ Podemos ver dos Entidades/Relaciones claras en el proyecto:
 ## **2. PLANIFICACIÓN PREVIA**
 
 ### 2.1 TECNOLOGÍA UTILIZADA PARA LA REALIZACIÓN DEL PROYECTO
-
 Para la realización de este proyecto he utilidado diferentes tecnologías:
 - El editor de Visual Studio Core para todos los apartados que consta de edición/creación/modificación de código. Lo he usado especialmente en aplicaciones como:
     - Inventariado, aplicación creada para manejar el inventario del grupo.
@@ -143,10 +136,61 @@ Para la realización de este proyecto he utilidado diferentes tecnologías:
 - Drive para la suibida de la máquina Virtual con las aplicaciones instaladas, la subida del PowerPoint y documentación solicitada.
 - VirtualBox para poder hacer una máquina virtual de Windows y así instalar en esta Xampp para el uso de las diferentes aplicaciones.
 
+---
 
-### 2.2 DESARROLLO DEL PROGRAMA
+## **3. PROBLEMAS Y SOLUCIONES**
+### 3.1 PROBLEMAS ENCONTRADOS A LA HORA DE REALIZAR EL PROYECTO
+
+A la hora de hacer la página web, me encontré una serie de dificultades, pero las he ido solventando poco a poco, con la instalación de otras aplicaciones:
+- Cuando he ido subiendo las entradas y páginas de la web antigua he dejado la fecha y hora con la que se subieron anteriormente.
+
+- A la hora de subir las aplicaciones era muy engorroso hacerlo desde el ftp, para ello encontré la aplicación de "Administrador de archivos WP" que sirve para ver los archivos en el escritorio de WordPress.
+
+- Cuando me dispongo a realizar las páginas y entradas, observo que tiene pocas opciones de edición los textos, por ello instalo "Advanced Editor Tools".
+
+- A la hora de reservar los sitios de la nave al principio lo hacíamos a través del correo, pero era más engorroso por eso encontramos la opción de hacerlo a través de la aplicación "Calendariop de Reservas".
+
+- Al principio los formularios no se guardaban en ningún sitio, pero encontré la opción de guardarlos a través de la extensión "Contact Form CFDB7".
+
+- Antes de empezar a realizar cualquier modificación, instalé la aplicación "Duplicator" por si se perdía algo de la base de datos o de los archivos, esto lo que genera es una copia de seguridad.
+
+- Algunas aplicaciones venían con otro lenguaje y no conseguía entender bien que hacía, para ello decido instalar la aplicación "Loco Translate".
+
+- Para evitar que las imágenes me pesaran tanto en las noticias y en las newsletter encontré la aplicación "Photonic".
+
+
+A la hora de generar las aplicaciones de Inventario y de Solicitud/Devolución de materiales encontré las siguientes dificultades:
+
+- Encontrar una guía o alguna aplicación para poder realizar lo que tenía en mente, todo lo encontrado no era 
+útil o no era lo que necesitaba para la aplicación pero ya que no encontré nada por internet ni se me ocurría cómo hacerlo, busqué la posibilidad de crear una aplicación con la idea de que hiciese todo lo que yo quisiera.
+Adaptar una aplicación pensada para un formulario específico y la entrada de una serie de datos en la base de datos.
+
+ 
+- A la hora de empezar a crear la aplicación, vi que no era efectivo realizarla en la web que ya tenía montada, ya que no quería modificar ninguna tabla de datos existente, por ello, decido empezar a trabajar en Local para poder meterme sin problemas en la base de datos del wordpress y poder eliminar, crear o editar tablas conforme fuese necesario.
+
+- Al principio fué un poco locura entender que hacía el SQL, el php y los datos que se pedían en los formularios de los ejemplos que encontré, la solución fué ir llamando poco a poco todos los datos en cada una de las consultas para así ir viendo si se creaban bien o no y sobre todo, ver que tipo de datos estabamos hablando.
+
+- Una vez que la tabla estaba creada en la base de datos, los datos que tenías que pasarle eran exactamente los que pedía, por tanto cada vez que querías hacer una comprobación tenías que crear una nueva tabla, lo que supuso crear unas nuevas bases de datos con sus wordpress correspondientes o crear tablas, al final para poder darme cuenta de los datos que me estaban pidiendo tuve que volver a repasar toda la parte de SQL que dimos en primero, entendiendo así bien cómo se generan las consultas pertinentes, cómo se crea la tabla y cómo se inserta en el array.
+
+-  Dependiendo que datos querías meter en el formulario, se tenía que proyectar de una forma tanto en wordpress cómo en el formulario cómo en la consulta de SQL. Al principio empecé creando tablas dentro de la misma base de datos, pero descubrí que al final seguía chocando una parte de la aplicación, así que decidí crear otras bases de datos. Ahora antes de ejecutar el plugin hay que revisar bien la tabla que se va a crear en la base de datos para no tener ninguna confusión con los datos.
+
+- Para que el usuario metiera los datos correspondientes decidí "sanear las respuestas", para ello tuve que aprender cómo hacerlo a través de php a través de vídeos sobre formularios.
+
+- La fecha de solicitud o devoluición de materiales si se pone bien en el formato de php, al hacer la consulta no se guardaba bien, en cambio, la fecha de creación el inventario si está actuando cómo quiero que actúe, es por esto que decido trabajar la fecha cómo si fuese de tipo texto.
+
+
+---
+
+## **4. TECNOLOGÍAS FINALES Y DESPLIEGUE DE LA APLICACIÓN**
+
+### 4.1 TECNOLOGÍAS DEL PROGRAMA
+Las diferentes tecnologías utilizadas han sido detalladas en el apartado 2.
+
+
+### 4.2 DESARROLLO DEL PROGRAMA
 Empecé desarrollando la página web del grupo con sus diferentes funcionalidades, buscando y modificando las aplicaciones pertinentes para que funcionara tal y cómo tenía pensado en los objetivos.
 - Para empezar añadi todas las aplicaciones necesarias para utilizar WooCommerce y las configuré para tener un uso más fluido.
+    ![Inventario](./img/plugin3.png)
     - Utilizando la aplicación "Akaunting para Woocommerce" para así tener la gestión de los clientes, proveedores, facturación fácil y gastos facturables.
     - "Product Customer List for WooCommerce" muestra una lista de los clientes que han comprado el producto en la página de edición.
     - "WC - APG Campo NIF/CIF/NIE" cómo bien indica el nombre es para añadir el campo de NIF/CIF/NIE en los productos.
@@ -160,13 +204,18 @@ Empecé desarrollando la página web del grupo con sus diferentes funcionalidade
     - "WooEvents" hacemos que woocommerce se conecte con el calendario y pueda proyectar en este las actividades.
 
 - Después cómo una de las ideas es el contacto con los usuarios, utilicé la aplicación Anti-Spam ya que iba a adjuntar una serie de formularios que trabajan a través del correo y así no entraba ningún correo basura.
+    ![Inventario](./img/antispam.png)
 
 - Añadí varias aplicaciones de formulario cómo son "Contact Form".
     - "Contact Form 7" Crea formularios de contacto.
+    ![Inventario](./img/plugin5.png)
     - "Contact Form 7 Signature Addon" Crea un campo de firma para el la aplicación anterior.
     - "Contact Form CFDB7" Guarda y gestiona los mensajes de "Contact Form 7", así no se pierden los datos.
+    ![Inventario](./img/contacto.png)
+
 
 - Para el envío de las newsletter he utilizado una aplicación llamad MailPoet 3, la cuál crea y envia boletines, publica notificaciones y más apartado que són fáciles de configurar.
+    ![Inventario](./img/mailPoet.png)
 
 - Uso la aplicación ManuSoft creada para convertir los registros de la aplicación "Contact Form 7" a pdf, así podremos generar cualquier formulario y exportar en pdf el resultado.
 
@@ -218,72 +267,53 @@ Una vez finalizado el Inventario, me centré en Solicitud/Devolución ya que una
 
 ---
 
-## **3. PROBLEMAS Y SOLUCIONES**
-### 3.1 PROBLEMAS ENCONTRADOS A LA HORA DE REALIZAR EL PROYECTO
-A la hora de generar las aplicaciones de Inventario y de Solicitud/Devolución de materiales encontré las siguientes dificultades:
-1. Encontrar una guía o alguna aplicación para poder realizar lo que tenía en mente, todo lo encontrado no era 
-útil o no era lo que necesitaba para la aplicación.
-
-Ya que no encontré nada por internet ni se me ocurría cómo hacerlo, busqué la posibilidad de crear una aplicación desde 0 con la idea de que hiciese todo lo que yo quisiera.
- 
-- A la hora de empezar a crear la aplicación, vi que no era efectivo realizarla en la web que ya tenía montada, ya que no quería modificar ninguna tabla de datos ya creada.
-- Adaptar una aplicación pensada para un formulario específico y la entrada de una serie de datos en la base de datos.
-
-Decido empezar a trabajar en Local para no poder meterme sin problemas en la base de datos del wordpress y poder eliminar, crear o editar tablas a mi antojo.
-
-- Una vez empecé a entender cómo se generan los formularios, adaptar las consultas SQL, adaptar el php y los datos del formulario para que cuando saliese y se solicitase en la web aparecieran en el sitio y orden correcto.
-Buscar cómo se creaban los formularios, que datos necesitaba y cómo se determinaban esos campos.
-
-- Una vez que la tabla estaba creada en la base de datos, los datos que tenías que pasarle eran exactamente los que pedía, por tanto cada vez que querías hacer una comprobación tenías que crear una nueva tabla, lo que implicaba en crear o bien unas nuevas bases de datos con sus wordpress correspondientes o bien crear tablas.
-Para poder darme cuenta de los datos que me estaban pidiendo tuve que volver a repasar toda la parte de SQL que dimos en primero, entendiendo así bien cómo se generan las consultas pertinentes, cómo se crea la tabla y cómo se inserta en el array.
-
--  Dependiendo que datos querías meter en el formulario, se tenía que proyectar de una forma tanto en wordpress cómo en el formulario cómo en la consulta de SQL.
-
-Al principio empecé creando tablas dentro de la misma base de datos, pero descubrí que al final seguía chocando una parte de la aplicación, así que decidí crear otras bases de datos. Ahora antes de ejecutar el plugin hay que revisar bien la tabla que se va a crear en la base de datos para no tener ninguna confusión con los datos.
-
-- Para que el usuario metiera los datos correspondientes decidí "sanear las respuestas" con la complicación de aprender bien cómo se sanean los datos en php.
-Aprender cómo se sanean los datos a través foros y vídeos de internet.
-
-- La fecha de solicitud o devoluición de materiales al ponerla bien en el formato de php, al hacer la consulta no se guardaba bien, la fecha de creaciónd el inventario si está actuando cómo quiero que actúe.
-
-Decido trabajar la fecha cómo si fuese de tipo texto ya que no he encontrado la forma de trabajarla de forma correcta en todos los formatos.
-
-
----
-
-## **4. DESPLIEGUE DE LA APLICACIÓN**
-
-Utilizo una serie de aplicaciones específicas, todas estudiadas en el curso, para poder desarrollar el programa:
-- **Xampp**: con esta podemos tener acceso a nuestro localhost, crear así nuestro WordPress en nuestro ordenador y así si hay algún fallo no tener problema en poder eliminar y volver a crear las carpetas de localhost/ sin ningún problema.
-- **Visual Studio Code**: Editor de texto, usado para la creación de las aplicaciones, edición de los textos y la configuración de los archivos por defecto, cómo es el archivo de config.php
-- **VirtualBox**: Máquina virtual creada para poder realizar la aplicación y así presentarla en la defensa del TFG.
-- **Windows10**: Sistema Operativo usado en la máquina virtual.
-
-
----
 ## **5. CONCLUSIÓN**
 ### 5.1. REVISIÓN DE LOS OBJETIVOS PREVIOS
-- Realizar una página web para que se conozca quiénes son los Scout, que hacemos, pero sobre todo que se conozca al grupo Scout de San Benito. => Cumplido
-- Tener un control exhaustivo de la participación de los miembros del grupo en las actividades y así tener el control de las autorizaciones para participar en las actividades. => Cumplido
-- Tener un control exhaustivo de los documentos, tanto de los miembros del grupo, cómo tener un control también de las solicitudes de admisión. => Cumplido
-- Enseñar que hace el grupo Scout en el día a día, realizando también un enlace a las redes sociales del grupo.     => Cumplido
-- Tener un control del uso de la nave y así también poder dejarla para alquilar. => Cumplido
-- Poder tener un control del inventario del grupo en la web, así también tener el control de los gastos que produce la compra de los materiales. => Cumplido
-- Tener un apartado en la web para poder solicitar/devolver un material con el que cuenta el grupo. => Faltaría mejorar el tema de la fecha, pero el resto => Cumplido
+- Realizar una página web para que se conozca quiénes son los Scout, que hacemos, pero sobre todo que se conozca al grupo Scout de San Benito, este objetivo ha sido cumplido en su totalidad.
+
+- Tener un control exhaustivo de la participación de los miembros del grupo en las actividades y así tener el control de las autorizaciones para participar en las actividades, este objetivo ha sido conseguido a través de la utilización de WooCommerce y las diferentes aplicaciones.
+
+- Tener un control exhaustivo de los documentos, tanto de los miembros del grupo, cómo tener un control también de las solicitudes de admisión, este objetivo ha sido conseguido gracias a la utilización de aplicaciones de ContactForm y ManuSoft.
+
+- Enseñar que hace el grupo Scout en el día a día, realizando también un enlace a las redes sociales del grupo, este objetivo ha sido cumplido en su totalidad.
+
+- Tener un control del uso de la nave y así también poder dejarla para alquilar, este objetivo ha sido cumplido gracias a la aplicación de "Calendario de Reservas"
+
+- Poder tener un control del inventario del grupo en la web, así también tener el control de los gastos que produce la compra de los materiales, este objetio ha sido cumplido gracias a la aplicación creada en Local.
+
+- Tener un apartado en la web para poder solicitar/devolver un material con el que cuenta el grupo, este objetivo ha sido cumplido correctamente para la versión 1, para la versión 2 hay mejoras pensadas. 
+
 
 ### 5.2 FUNCIONALIDAD DEL PROGRAMA
-La web de scoutsanbenito.es está funcionando ahora mismo cómo se quería, con todas las aplicaciones actualizadas y al día, con el control exhaustivo de las actividades, de los papeles, dá conocimiento de lo que es el grupo y de lo que es el movimiento scout. 
+La web de scoutsanbenito.es está funcionando cómo se había planteado, con todas las aplicaciones actualizadas y al día, con el control exhaustivo de las actividades, de los papeles, dá conocimiento de lo que es el grupo y de lo que es el movimiento scout. 
 Es una página web que ya está en funcionamiento, la gente puede entrar y solicitar admisión en el grupo scout, al mismo tiempo que puede ver las activiades que hacemos, pero no puede participar en ellas hasta que no sean miembros del grupo.
 
 Con respecto a las otras aplicaciones que están en local:
-- En el Inventario podemos ir introduciendo los materiales para poder tener una lista de ellos y sobre todo, poder tenerlo bien organizado en la web, para poder proyectar los datos de la base de datos que estamos utilizando usamos la aplicación wpDatatables. 
+- En el Inventario podemos ir introduciendo los materiales para poder tener una lista de ellos y sobre todo, poder tenerlo bien organizado en la web, para poder proyectar los datos de la base de datos que estamos utilizando usamos la aplicación wpDatatables.
+
 - El formulario de Solicitud de materiales también está en funcionamiento, sirve para tener un control claro de la fecha que se va a solicitar, quién lo solicita, que tipo de material y desde dónde lo va a solicitar (tipo de rama), esto también se proyectará en la web, pero solo lo podrán ver aquellos usuarios que nosotros permitamos (permitiendolo con los roles de WordPress).
+
 - Esta es la versión 1, en un futuro se realizará al versión 2, la cuál contará con mejores y con la migración de la aplicación a nuestra web Scout
-
-Están en Local porque no he podido aún realizar la migración ya que aún hay que estudiar bien todas las tablas que generan las aplicaciones de la wqeb de scoutsanbenito.es
-
 
 
 
 ### 5.3 FINALIDAD DEL PROYECTO
-Mi proyecto estaba reflejado en hacer la vida más fácil al grupo tanto en la parte de gestión personal (datos, fichas médicas, cuentas bancarias, redes sociales, autorizaciones...), cómo para la gestión de los materiales, constantemente se estaban cogiendo pero nunca sabíamos si había que reponerlos, quién los había cogido... Es una aplicación que llevamos bastante tiempo darle una vuelta y he aprovechado que se necesitaba algo así cómo para poder crearlo y darle una utilidad real.
+Mi proyecto estaba reflejado en hacer la vida más fácil al grupo tanto en la parte de gestión personal (datos, fichas médicas, cuentas bancarias, redes sociales, autorizaciones...), cómo para la gestión de los materiales que se tenía, cómo la solicitud/devolución de estos, tener conocimiento también si había que reponerlos, quién los había cogido... 
+
+Es una aplicación que llevamos bastante tiempo darle una vuelta y he aprovechado que se necesitaba algo así cómo para poder crearlo y darle una utilidad real.
+
+
+## **6. BIBLIOGRAFÍA**
+
+1. https://diego.com.es/formularios-en-php
+2. https://developer.wordpress.org/resource/dashicons/#dismiss
+3. https://kungfupress.com/como-programar-un-formulario-en-wordpress-sin-utilizar-plugins/
+4. Una serie de vídeos cómo:
+    - https://www.youtube.com/watch?v=4TF16H5M7OI
+    - https://www.youtube.com/watch?v=J2yGET3ojZk
+    - https://www.youtube.com/watch?v=yrMyicSY6Lo&t=13s
+5. https://kungfupress.com/
+6. https://github.com/kungfupress/kfp_formulario_aspirantes
+
+
+
