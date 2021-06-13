@@ -3,8 +3,8 @@
  /**
   * Plugin Name: Solicitud-Inventariado
   * Author: Pedro Suárez
-  * Description: Plugin creado por alumno de 2º Desarrollador de Aplicaciones Web, cómo Proyecto Integrado del grado. El plugin genera un shortcode para el formulario.
-  * Version: 0.1.11
+  * Description: Plugin creado por alumno de 2º Desarrollador de Aplicaciones Web, cómo Proyecto Integrado del grado. El plugin genera un shortcode para el formulario. [sol_plugin_form]
+  * Version: 0.1.1
   */
 
 register_activation_hook(__FILE__, 'Sol_Plugin_init');
@@ -27,7 +27,7 @@ function Sol_Plugin_init()
         rama_solicitante varchar(40) NOT NULL,
         estado_material varchar(40) NOT NULL,
         cantidad_material int(4) NOT NULL,
-        fecha datetime NOT NULL,
+        fecha varchar(200) NOT NULL,
         create_at datetime NOT NULL,
         UNIQUE (id)
         ) $charset_collate";
@@ -62,7 +62,7 @@ function Sol_Plugin_init()
             $rama_solicitante = sanitize_text_field($_POST['rama_solicitante']);
             $estado_material = sanitize_text_field($_POST['estado_material']);
             $cantidad_material = (int)$_POST['cantidad_material'];
-            $fecha = date('Y-m-d H:i:s');
+            $fecha = sanitize_text_field($_POST['fecha']);
             $create_at = date('Y-m-d H:i:s');
 
             $wpdb->insert($tabla_solicitud, 
@@ -136,9 +136,9 @@ function Sol_Plugin_init()
             <input type="number" name="cantidad_material" value="1" required>
         </div>
         <div class="form-input">
-            <label for="fecha">Fecha de solicitud/Devolución</label>
-            <br><input type="date" name="fecha" value="2021-06-01" required>
-        </div>
+            <label for="fecha">Dime la fecha solicitada</label>
+            <input type="text" name="fecha" required="required" value="2021-06-01">
+        </div> 
         <br>
         <div class="form-input">
             <br><input type="submit" value="Enviar">
@@ -159,7 +159,7 @@ function Sol_Plugin_init()
    function Sol_solicitud_menu()
    {
        add_menu_page("Formulario Solicitud", "Solicitud-Devolución", "manage_options",
-       "sol_solicitud_menu", "Sol_solicitud_admin", "dashicons-feedback", 20);
+       "sol_solicitud_menu", "Sol_solicitud_admin", "dashicons-clipboard", 20);
    }
 
    add_shortcode('sol_solicitud_admin', 'Sol_solicitud_admin');
@@ -170,7 +170,7 @@ function Sol_Plugin_init()
         global $wpdb;
         $tabla_solicitud = $wpdb->prefix . 'solicitud';
         $solicitud2 = $wpdb->get_results("SELECT * FROM $tabla_solicitud");
-        echo '<div class="wrap"><h1>Lista de Materiales</h1>';
+        echo '<div class="wrap"><h1>Solicitud/Devolución de Materiales</h1>';
         echo '<table class="wp-list-table widefat fixed striped">';
         echo '<thead><tr><th width="30%">Nombre</th>';
         echo '<th>Tipo_Formulario</th><th>Material</th><th>Tipo_Material</th>
@@ -188,7 +188,7 @@ function Sol_Plugin_init()
             $rama_solicitante = esc_textarea($solicitud->rama_solicitante);
             $estado_material = esc_textarea($solicitud->estado_material);
             $cantidad_material = (int)$solicitud->cantidad_material;           
-            $fecha = (int)$solicitud->fecha;
+            $fecha = esc_textarea($solicitud->fecha);
             $create_at = (int)$solicitud->create_at;
             echo "<tr><td>$nombre</td><td>$tipo_formulario</td>";
             echo "<td>$material</td><td>$tipo_material</td><td>$rama_solicitante</td>";
