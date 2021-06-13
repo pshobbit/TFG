@@ -220,6 +220,23 @@ Empecé desarrollando la página web del grupo con sus diferentes funcionalidade
 - Uso la aplicación ManuSoft creada para convertir los registros de la aplicación "Contact Form 7" a pdf, así podremos generar cualquier formulario y exportar en pdf el resultado.
 
 
+Para poder realizar las aplicaciones de Inventario y de Solicitud/Devolución de materiales, creé un wordpress en Local a través de xampp, y una base de datos de mysql para poder guardar todos los datos de la web.
+1. Lo primero que tenemos que hacer es crear una base de datos en nuestro xampp.
+    ![Inventario](./img/crearBBDD.png)
+
+2. Subimos los archivos de WordPress a una carpeta que debe de estar en C:/xampp/htdocs/"nombreweb"
+    ![Inventario](./img/crearCarpeta.png)
+    ![Inventario](./img/SubidaArchivosWordpress.png)
+
+3. Después iremos a nuestro navegador y pondremos: localhost/"nombreweb", e iremos poniendo los datos que nos van solicitando.
+    ![Inventario](./img/instalacionWordPress.png)
+    ![Inventario](./img/mensajeInstalacion.png)
+
+
+
+
+
+
 Después me centré sobre todo en la aplicación del Inventario ya que era algo más específico y más complicado de conseguir. 
 Esta aplicación consta de varias partes:
 
@@ -264,6 +281,14 @@ Una vez finalizado el Inventario, me centré en Solicitud/Devolución ya que, un
     - Al sanear todos los datos hay que tener los diferentes tipos de datos que vamos a pedir en el formulario.
     - A la hora de presentar la aplicación en WordPress cambiamos el "dashicons" para que haya diferencia con respecto a los demás.
     - Cuando generamos la tabla en WordPress tenemos que tener cuidado también a la hora de proyectarlos ya que hay muchos datos diferentes. 
+
+
+- Por último para que nuestra web tenga un estilo más preciso, en el personalizador de Temas añadimos los siguientes datos de css: 
+> .wpDataTablesWrapper .dataTables_info { display: none; }
+
+> .wpdt-c .wpDataTables .wpDataTablesWrapper{ margin-left: -300px; margin-right_ -300px; }
+
+> form.cuestionario label { font-size:20px; }
 
 ---
 
